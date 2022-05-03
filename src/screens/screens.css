@@ -114,3 +114,8 @@ html {
   border-radius: 5px;
   margin-top: 20px;
 }
+
+.admin-container {
+  color: #f1f1f1;
+  display: flex;
+}

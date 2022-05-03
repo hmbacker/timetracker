@@ -31,9 +31,9 @@ const TimeList = (props) => {
       className="timelist-container"
       onClick={() => (expand ? setExpand(false) : setExpand(true))}
     >
-      {!expand && <div style={{ marginRight: "30px" }}>Åpne rapport</div>}
+      {!expand && <div style={{ marginRight: "20px" }}>Åpne rapport</div>}
       {expand && (
-        <div style={{ marginRight: "30px", marginBottom: "20px" }}>
+        <div style={{ marginRight: "20px", marginBottom: "20px" }}>
           Lukk rapport
         </div>
       )}

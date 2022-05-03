@@ -56,7 +56,7 @@ const TimeInfo = () => {
           <div className="info-totalprojects-projects">{total_projects}</div>
         </div>
         <div className="info-totalhours-container">
-          <div className="info-totalhours-text">Timer totalt</div>
+          <div className="info-totalhours-text">Timer</div>
           <div className="info-totalhours-hours">{total_hours}</div>
         </div>
       </div>

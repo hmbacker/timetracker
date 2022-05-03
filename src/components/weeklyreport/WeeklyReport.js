@@ -41,7 +41,7 @@ const WeeklyReport = () => {
           <div className="week-csv">
             <CSVLink
               data={row.entries}
-              filename={"timerapport_uke_" + row.week}
+              filename={"timerapport_uke_" + row.week + ".csv"}
               enclosingCharacter={""}
               style={{ color: "#f1f1f1", fontSize: "12px" }}
             >
