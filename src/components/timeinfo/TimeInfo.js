@@ -1,20 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getCurrentWeekNumber } from "../../GlobalFunctions";
+import { useLocalStorage } from "../../GlobalFunctions";
 import "./TimeInfo.css";
 
-const TimeInfo = () => {
+import { weekNumber } from "weeknumber";
+
+const TimeInfo = (props) => {
+  // const [data, setData] = useLocalStorage("user-entries", [
+  //   // {
+  //   //   week: "",
+  //   //   entries: [],
+  //   // },
+  // ]);
+
   let total_customers = 0;
   let total_projects = 0;
   let total_hours = 0;
 
+  const current_week = weekNumber(new Date());
+
   try {
-    const data = JSON.parse(localStorage.getItem("user-entries"));
-    const current_week = getCurrentWeekNumber();
     let unique_customers = [];
     let unique_projects = [];
 
-    Object.values(data).map((row) => {
+    Object.values(props.data).map((row) => {
       if (row.week === current_week) {
         Object.values(row.entries).map(
           (value) => (total_hours += parseInt(value.hours))
@@ -38,14 +47,12 @@ const TimeInfo = () => {
     total_customers = unique_customers.length;
     total_projects = unique_projects.length;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
-
-  const week_number = getCurrentWeekNumber();
 
   return (
     <div className="info-container">
-      <div className="info-week">Uke {week_number}</div>
+      <div className="info-week">Uke {current_week}</div>
       <div className="info-numbers-container">
         <div className="info-totalcustomers-container">
           <div className="info-totalcustomers-text">Kunder</div>

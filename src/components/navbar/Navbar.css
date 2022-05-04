@@ -16,21 +16,18 @@
 
 .navbar-title {
   font-size: 20px;
-  margin-left: 50px;
+  margin-left: 40px;
   color: #f1f1f1;
   /* color: #1d1d1d; */
   /* font-family: "Copperplate"; */
   font-family: "Verdana";
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 700px) {
   .navbar-container {
-    flex-direction: column;
-    justify-content: center;
-    height: 15vh;
+    width: 100%;
   }
-  .navbar-title {
-    margin-left: 0;
-    margin-bottom: 10px;
+  .navbar-logo {
+    margin-right: 40px;
   }
 }

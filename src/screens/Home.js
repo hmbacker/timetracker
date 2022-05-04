@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import TimeEntry from "../components/timeentry/TimeEntry";
 import TimeInfo from "../components/timeinfo/TimeInfo";
 import WeeklyReport from "../components/weeklyreport/WeeklyReport";
+import { useLocalStorage } from "../GlobalFunctions";
 import "./screens.css";
 
-const Home = () => {
+const Home = (props) => {
+  // const [data, setData] = useLocalStorage("user-entries", [
+  // {
+  //   week: "",
+  //   entries: [],
+  // },
+  // ]);
+  // console.log(data);
+
+  // useEffect(() => {
+  //   setData(JSON.parse(localStorage.getItem("user-entries")));
+  // });
+
+  const data = JSON.parse(localStorage.getItem("user-entries"));
+
   return (
     // <div className="container">
     <div className="home-container">
       <Navbar />
       <div className="home-hours">
-        <TimeEntry />
-        <TimeInfo />
+        <TimeEntry
+          data={data}
+          // setData={setData}
+        />
+        <TimeInfo data={data} />
       </div>
       <div className="home-weeklyreports">
-        <WeeklyReport />
+        <WeeklyReport data={data} />
       </div>
     </div>
     // </div>

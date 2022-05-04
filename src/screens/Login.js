@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ReactComponent as Logo } from "../timeføring_logo.svg";
+import { ReactComponent as Logo } from "../images/timeføring_logo.svg";
 import "./screens.css";
 
 const Login = () => {

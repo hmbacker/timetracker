@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Logo } from "../../timeføring_logo.svg";
+import { ReactComponent as Logo } from "../../images/timeføring_logo.svg";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -7,7 +7,9 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-container">
         <div className="navbar-title">Timeføring AS</div>
-        <Logo />
+        <div className="navbar-logo">
+          <Logo />
+        </div>
       </div>
     </div>
   );

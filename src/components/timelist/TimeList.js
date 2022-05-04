@@ -10,19 +10,24 @@ const TimeList = (props) => {
   // }
 
   const [expand, setExpand] = useState(false);
+  let time_list = [];
 
-  const time_list = Object.values(props.data).map((row, index) => {
-    return (
-      <div className="list-container" key={index}>
-        <div>{row.customer}</div>
-        <div>{row.project}</div>
-        <div>{row.description}</div>
-        <div>{row.date}</div>
-        <div>{row.hours}</div>
-        <div>{row.comment}</div>
-      </div>
-    );
-  });
+  try {
+    time_list = Object.values(props.data).map((row, index) => {
+      return (
+        <div className="list-container" key={index}>
+          <div>{row.customer}</div>
+          <div>{row.project}</div>
+          <div>{row.description}</div>
+          <div>{row.date}</div>
+          <div>{row.hours}</div>
+          <div>{row.comment}</div>
+        </div>
+      );
+    });
+  } catch (e) {
+    console.log(e);
+  }
 
   // console.log(props.data);
 

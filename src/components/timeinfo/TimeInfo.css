@@ -32,6 +32,17 @@
   width: 150px;
 }
 
+@media only screen and (max-width: 622px) {
+  .info-totalcustomers-container,
+  .info-totalprojects-container,
+  .info-totalhours-container {
+    width: 100px;
+  }
+  .info-container {
+    margin: 0;
+  }
+}
+
 .info-totalcustomers-text,
 .info-totalprojects-text,
 .info-totalhours-text {

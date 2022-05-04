@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
+import { getUniqueCustomers, getUniqueProjects } from "../GlobalFunctions";
 import "./screens.css";
 
 const Admin = () => {
@@ -10,20 +11,23 @@ const Admin = () => {
   let unique_projects = [];
 
   try {
-    const data = JSON.parse(localStorage.getItem("user-entries"));
+    // const data = JSON.parse(localStorage.getItem("user-entries"));
 
-    let all_customers = [];
-    let all_projects = [];
+    // let all_customers = [];
+    // let all_projects = [];
 
-    Object.values(data).map((row) => {
-      Object.values(row.entries).map((value) => {
-        all_customers.push(value.customer);
-        all_projects.push(value.project);
-      });
-    });
+    // Object.values(data).map((row) => {
+    //   Object.values(row.entries).map((value) => {
+    //     all_customers.push(value.customer);
+    //     all_projects.push(value.project);
+    //   });
+    // });
 
-    unique_customers = [...new Set(all_customers)];
-    unique_projects = [...new Set(all_projects)];
+    // unique_customers = [...new Set(all_customers)];
+    // unique_projects = [...new Set(all_projects)];
+
+    unique_customers = getUniqueCustomers();
+    unique_projects = getUniqueProjects();
 
     total_customers = unique_customers.length;
     total_projects = unique_projects.length;

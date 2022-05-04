@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import validator from "validator";
-import { ReactComponent as Logo } from "../timeføring_logo.svg";
+import { ReactComponent as Logo } from "../images/timeføring_logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import "./screens.css";
 
