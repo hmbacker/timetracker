@@ -115,7 +115,7 @@ const TimeEntry = (props) => {
                   onClick={() => setCustomerAuto(false)}
                   style={{ fontSize: "10px", textAlign: "right" }}
                 >
-                  Close
+                  Lukk
                 </li>
               )}
             </ul>
@@ -160,7 +160,7 @@ const TimeEntry = (props) => {
                   onClick={() => setProjectAuto(false)}
                   style={{ fontSize: "10px", textAlign: "right" }}
                 >
-                  Close
+                  Lukk
                 </li>
               )}
             </ul>

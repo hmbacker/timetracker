@@ -28,6 +28,7 @@ const Admin = () => {
 
     unique_customers = getUniqueCustomers();
     unique_projects = getUniqueProjects();
+    console.log(unique_projects);
 
     total_customers = unique_customers.length;
     total_projects = unique_projects.length;
@@ -55,10 +56,29 @@ const Admin = () => {
     <div className="home-container">
       <Navbar />
       <div className="admin-container">
-        <div className="admin-customers">{total_customers} kunder</div>
-        <div className="admin-projects">{total_projects} prosjekter</div>
-        <div className="customers">{customers}</div>
-        <div className="projects">{projects}</div>
+        <div className="admin-text">Dine kunder og prosjekter</div>
+        <div className="admin-content-container">
+          <div className="admin-info-container">
+            <div className="admin-info-totalcustomers-container">
+              <div className="admin-info-totalcustomers-text">Kunder</div>
+              <div className="admin-info-totalcustomers-customers">
+                {total_customers}
+              </div>
+            </div>
+            <div className="admin-info-totalprojects-container">
+              <div className="admin-info-totalprojects-text">Prosjekter</div>
+              <div className="admin-info-totalprojects-projects">
+                {total_projects}
+              </div>
+            </div>
+          </div>
+          <div className="line" style={{ width: "40%", marginTop: "20px" }} />
+          <div className="admin-list-container">
+            <div className="customers">{customers}</div>
+            <div className="projects">{projects}</div>
+          </div>
+          <div className="line" style={{ width: "40%", marginTop: "20px" }} />
+        </div>
       </div>
       <Link to="/home" style={{ color: "#1d1d1d", textDecoration: "none" }}>
         <button className="info-button">Tilbake</button>

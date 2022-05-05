@@ -118,4 +118,68 @@ html {
 .admin-container {
   color: #f1f1f1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 80%;
+  /* text-align: left; */
+  /* background-color: darkcyan; */
+}
+
+.admin-text {
+  margin-left: 5px;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.admin-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-info-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-info-totalcustomers-container,
+.admin-info-totalprojects-container {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.admin-info-totalcustomers-text,
+.admin-info-totalprojects-text {
+  /* font-size: 11px; */
+  font-size: 1rem;
+}
+
+.admin-info-totalcustomers-customers,
+.admin-info-totalprojects-projects {
+  /* font-size: 40px; */
+  font-size: 4rem;
+  color: #a9e8e8;
+}
+
+.admin-list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.customers {
+  margin-right: 20px;
+}
+
+.projects {
+  margin-left: 20px;
+}
+
+.customers > *,
+.projects > * {
+  margin: 10px;
 }
