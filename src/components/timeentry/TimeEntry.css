@@ -55,13 +55,27 @@
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 1038px) {
+@media only screen and (max-width: 1037px) {
   .timeentry-form-wrapper {
     align-items: center;
   }
-  .form-footer,
+
   .form-inputs {
     justify-content: center;
+  }
+
+  .form-footer {
+    flex-direction: column !important;
+    justify-content: center;
+  }
+
+  .timeentry-form-button {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .form-footer > * {
+    margin-left: 0 !important;
   }
 }
 
@@ -124,6 +138,7 @@
 
 .timeentry-form-button {
   background-color: #0d9940;
+  /* background-color: #47cf74; */
   /* background-color: #27bf5f; */
   border: none;
   color: white;

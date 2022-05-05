@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 
-const data = JSON.parse(localStorage.getItem("user-entries"));
+// const data = JSON.parse(localStorage.getItem("user-entries"));
 
 // export const unique_customers = [
 //   ...new Set(
@@ -22,7 +22,7 @@ const data = JSON.parse(localStorage.getItem("user-entries"));
 //   ),
 // ];
 
-export function getUniqueCustomers() {
+export function getUniqueCustomers(data) {
   let all_customers = [];
   try {
     Object.values(data).map((row) => {
@@ -34,7 +34,7 @@ export function getUniqueCustomers() {
   return [...new Set(all_customers)];
 }
 
-export function getUniqueProjects() {
+export function getUniqueProjects(data) {
   let all_projects = [];
 
   try {

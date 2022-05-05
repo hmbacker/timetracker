@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/navbar/Navbar";
 import TimeEntry from "../components/timeentry/TimeEntry";
 import TimeInfo from "../components/timeinfo/TimeInfo";
@@ -7,13 +7,7 @@ import { useLocalStorage } from "../GlobalFunctions";
 import "./screens.css";
 
 const Home = () => {
-  const [data, setData] = useLocalStorage("user-entries", [
-    {
-      week: "",
-      entries: [],
-    },
-  ]);
-
+  const [data, setData] = useLocalStorage("user-entries", []);
 
   return (
     // <div className="container">

@@ -1,18 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useLocalStorage } from "../../GlobalFunctions";
 import "./TimeInfo.css";
 
 import { weekNumber } from "weeknumber";
 
 const TimeInfo = (props) => {
-  // const [data, setData] = useLocalStorage("user-entries", [
-  //   // {
-  //   //   week: "",
-  //   //   entries: [],
-  //   // },
-  // ]);
-
   let total_customers = 0;
   let total_projects = 0;
   let total_hours = 0;
@@ -46,9 +38,7 @@ const TimeInfo = (props) => {
     });
     total_customers = unique_customers.length;
     total_projects = unique_projects.length;
-  } catch (e) {
-    // console.log(e);
-  }
+  } catch (e) {}
 
   return (
     <div className="info-container">
@@ -68,9 +58,9 @@ const TimeInfo = (props) => {
         </div>
       </div>
       {/* <div className="info-button"> */}
-      <Link to="/admin" style={{ color: "#1d1d1d", textDecoration: "none" }}>
+      {/* <Link to="/admin" style={{ color: "#1d1d1d", textDecoration: "none" }}>
         <button className="info-button">Administrasjon</button>
-      </Link>
+      </Link> */}
       {/* </div> */}
     </div>
   );

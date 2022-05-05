@@ -58,6 +58,7 @@ html {
   font-family: "Verdana";
   /* font-size: 14px; */
   font-size: 1rem;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -69,6 +70,13 @@ html {
 @media only screen and (max-height: 600px) {
   .form-wrapper {
     height: 25rem;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .form-wrapper {
+    width: 30rem;
+    height: 30rem;
   }
 }
 
@@ -98,6 +106,7 @@ html {
   margin: 8px 0;
   color: #f1f1f1;
   font-size: 16px;
+  /* font-size: 1rem; */
   background: transparent;
   text-align: center;
 }

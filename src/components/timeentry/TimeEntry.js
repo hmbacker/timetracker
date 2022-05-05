@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { weekNumber } from "weeknumber";
-import {
-  getUniqueCustomers,
-  getUniqueProjects,
-  // useLocalStorage,
-} from "../../GlobalFunctions";
+import { Link } from "react-router-dom";
+import { getUniqueCustomers, getUniqueProjects } from "../../GlobalFunctions";
 import TimeInfo from "../timeinfo/TimeInfo";
 import WeeklyReport from "../weeklyreport/WeeklyReport";
 import "./TimeEntry.css";
@@ -18,13 +15,14 @@ const TimeEntry = (props) => {
     hours: "",
     comment: "",
   });
+  console.log(props.data.length);
 
   const [customerAuto, setCustomerAuto] = useState(false);
   const [projectAuto, setProjectAuto] = useState(false);
 
   const [isAdded, setIsAdded] = useState(false);
-  const unique_customers = getUniqueCustomers();
-  const unique_projects = getUniqueProjects();
+  const unique_customers = getUniqueCustomers(props.data);
+  const unique_projects = getUniqueProjects(props.data);
 
   const addEntry = (entry) => {
     let all_entries = props.data;
@@ -49,6 +47,14 @@ const TimeEntry = (props) => {
 
     // window.localStorage.setItem("user-entries", JSON.stringify(all_entries));
     props.setData(all_entries);
+    setEntry({
+      customer: "",
+      project: "",
+      description: "",
+      date: new Date(),
+      hours: "",
+      comment: "",
+    });
   };
 
   const handleSubmit = (e) => {
@@ -220,6 +226,13 @@ const TimeEntry = (props) => {
       <div className="weeklyreports-container">
         <WeeklyReport data={props.data} />
       </div>
+      {props.data.length > 0 && (
+        <Link to="/admin" style={{ color: "#1d1d1d", textDecoration: "none" }}>
+          <button className="info-button">
+            Administrer kunder og prosjekter
+          </button>
+        </Link>
+      )}
     </div>
   );
 };

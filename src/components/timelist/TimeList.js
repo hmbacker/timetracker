@@ -18,10 +18,10 @@ const TimeList = (props) => {
         <div className="list-container" key={index}>
           <div>{row.customer}</div>
           <div>{row.project}</div>
-          <div>{row.description}</div>
+          <div id="description">{row.description}</div>
           <div>{row.date}</div>
           <div>{row.hours}</div>
-          <div>{row.comment}</div>
+          <div id="comment">{row.comment}</div>
         </div>
       );
     });
@@ -36,9 +36,9 @@ const TimeList = (props) => {
       className="timelist-container"
       onClick={() => (expand ? setExpand(false) : setExpand(true))}
     >
-      {!expand && <div style={{ marginRight: "20px" }}>Åpne rapport</div>}
+      {!expand && <div style={{ marginRight: "8px" }}>Åpne rapport</div>}
       {expand && (
-        <div style={{ marginRight: "20px", marginBottom: "20px" }}>
+        <div style={{ marginRight: "8px", marginBottom: "20px" }}>
           Lukk rapport
         </div>
       )}
@@ -47,10 +47,10 @@ const TimeList = (props) => {
           <div className="timelist-columns">
             <p>Kunde</p>
             <p>Prosjekt</p>
-            <p>Beskrivelse</p>
+            <p id="description">Beskrivelse</p>
             <p>Dato</p>
             <p>Timer</p>
-            <p>Kommentar</p>
+            <p id="comment">Kommentar</p>
           </div>
           <div className="line" />
           <div className="timelist-list">{time_list}</div>

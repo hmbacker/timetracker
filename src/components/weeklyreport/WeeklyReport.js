@@ -1,29 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TimeList from "../timelist/TimeList";
-import { useLocalStorage } from "../../GlobalFunctions";
 
 import { CSVLink } from "react-csv";
 import "./WeeklyReport.css";
+import { CsvModal } from "../csvmodal/CsvModal";
 
 const WeeklyReport = (props) => {
-  // const [expand, setExpand] = useState(false);
-
-  // const [lessThan40Hours, SetLessThan40Hours] = useState(true);
-
-  // let data_object = {};
-
-  // let json_data = props.data;
-
-  // if (json_data) {
-  //   data_object = json_data.reverse();
-  // }
-  // console.log(props.data.entries);
-  // const [data, setData] = useLocalStorage("user-entries", [
-  //   // {
-  //   //   week: "",
-  //   //   entries: [],
-  //   // },
-  // ]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [csvWeek, setCsvWeek] = useState(null);
 
   function getWeeklyHours(row) {
     let weekly_hours = 0;
@@ -31,21 +15,13 @@ const WeeklyReport = (props) => {
       Object.values(row.entries).map((value) => {
         weekly_hours += parseInt(value.hours);
       });
-    } catch (e) {
-      // console.log(e);
-    }
-
+    } catch (e) {}
     return weekly_hours;
   }
-
-  // if (weekly_hours < 40) {
-  //   SetLessThan40Hours(true);
-  // }
 
   let reports = [];
   try {
     reports = Object.values(props.data).map((row, index) => {
-      // console.log(row.entries);
       let weekly_hours = getWeeklyHours(row);
 
       if (row.week !== "" && row.entries.length > 0) {
@@ -60,25 +36,42 @@ const WeeklyReport = (props) => {
                 </p>
               </div>
               <div className="week-csv">
-                <CSVLink
-                  data={row.entries}
-                  filename={"timerapport_uke_" + row.week + ".csv"}
-                  enclosingCharacter={""}
-                  style={{ color: "#f1f1f1", fontSize: "12px" }}
-                >
-                  Eksporter til .csv
-                </CSVLink>
+                {weekly_hours < 40 && (
+                  <button
+                    onClick={() => {
+                      setModalOpen(true);
+                      setCsvWeek(row.week);
+                    }}
+                  >
+                    Eksporter til .csv
+                  </button>
+                )}
+                {weekly_hours >= 40 && (
+                  <CSVLink
+                    data={row.entries}
+                    filename={"timerapport_uke_" + row.week + ".csv"}
+                    enclosingCharacter={""}
+                    style={{ color: "#f1f1f1", fontSize: "12px" }}
+                  >
+                    Eksporter til .csv
+                  </CSVLink>
+                )}
               </div>
             </div>
 
             <TimeList data={row.entries} />
+            {csvWeek === row.week && (
+              <CsvModal
+                data={row}
+                modalOpen={modalOpen}
+                setModalOpen={setModalOpen}
+              />
+            )}
           </div>
         );
       }
     });
-  } catch (e) {
-    // console.log(e);
-  }
+  } catch (e) {}
 
   return <div className="weekly-container">{reports}</div>;
 };

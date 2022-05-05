@@ -1,40 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
-import { getUniqueCustomers, getUniqueProjects } from "../GlobalFunctions";
+import {
+  getUniqueCustomers,
+  getUniqueProjects,
+  useLocalStorage,
+} from "../GlobalFunctions";
 import "./screens.css";
 
 const Admin = () => {
+  const [data, setData] = useLocalStorage("user-entries", []);
+
   let total_customers = 0;
   let total_projects = 0;
   let unique_customers = [];
   let unique_projects = [];
 
   try {
-    // const data = JSON.parse(localStorage.getItem("user-entries"));
-
-    // let all_customers = [];
-    // let all_projects = [];
-
-    // Object.values(data).map((row) => {
-    //   Object.values(row.entries).map((value) => {
-    //     all_customers.push(value.customer);
-    //     all_projects.push(value.project);
-    //   });
-    // });
-
-    // unique_customers = [...new Set(all_customers)];
-    // unique_projects = [...new Set(all_projects)];
-
-    unique_customers = getUniqueCustomers();
-    unique_projects = getUniqueProjects();
-    console.log(unique_projects);
+    unique_customers = getUniqueCustomers(data);
+    unique_projects = getUniqueProjects(data);
 
     total_customers = unique_customers.length;
     total_projects = unique_projects.length;
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
+
+  Object.values(data).map((row) => console.log(row.entries));
 
   const customers = Object.values(unique_customers).map((customer, index) => {
     return (
@@ -72,12 +62,12 @@ const Admin = () => {
               </div>
             </div>
           </div>
-          <div className="line" style={{ width: "40%", marginTop: "20px" }} />
+          {/* <div className="line" style={{ width: "40%", marginTop: "20px" }} /> */}
           <div className="admin-list-container">
             <div className="customers">{customers}</div>
             <div className="projects">{projects}</div>
           </div>
-          <div className="line" style={{ width: "40%", marginTop: "20px" }} />
+          {/* <div className="line" style={{ width: "40%", marginTop: "20px" }} /> */}
         </div>
       </div>
       <Link to="/home" style={{ color: "#1d1d1d", textDecoration: "none" }}>
