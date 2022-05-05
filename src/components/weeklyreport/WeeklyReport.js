@@ -48,31 +48,33 @@ const WeeklyReport = (props) => {
       // console.log(row.entries);
       let weekly_hours = getWeeklyHours(row);
 
-      return (
-        <div className="week-container" key={index}>
-          <div className="week-info">
-            <div className="week-number">Uke {row.week}</div>
-            <div className="week-hours">
-              {weekly_hours}{" "}
-              <p style={{ fontSize: "11px", marginLeft: "5px" }}>
-                timer totalt
-              </p>
+      if (row.week !== "" && row.entries.length > 0) {
+        return (
+          <div className="week-container" key={index}>
+            <div className="week-info">
+              <div className="week-number">Uke {row.week}</div>
+              <div className="week-hours">
+                {weekly_hours}{" "}
+                <p style={{ fontSize: "11px", marginLeft: "5px" }}>
+                  timer totalt
+                </p>
+              </div>
+              <div className="week-csv">
+                <CSVLink
+                  data={row.entries}
+                  filename={"timerapport_uke_" + row.week + ".csv"}
+                  enclosingCharacter={""}
+                  style={{ color: "#f1f1f1", fontSize: "12px" }}
+                >
+                  Eksporter til .csv
+                </CSVLink>
+              </div>
             </div>
-            <div className="week-csv">
-              <CSVLink
-                data={row.entries}
-                filename={"timerapport_uke_" + row.week + ".csv"}
-                enclosingCharacter={""}
-                style={{ color: "#f1f1f1", fontSize: "12px" }}
-              >
-                Eksporter til .csv
-              </CSVLink>
-            </div>
-          </div>
 
-          <TimeList data={row.entries} />
-        </div>
-      );
+            <TimeList data={row.entries} />
+          </div>
+        );
+      }
     });
   } catch (e) {
     // console.log(e);

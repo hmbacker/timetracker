@@ -6,34 +6,25 @@ import WeeklyReport from "../components/weeklyreport/WeeklyReport";
 import { useLocalStorage } from "../GlobalFunctions";
 import "./screens.css";
 
-const Home = (props) => {
-  // const [data, setData] = useLocalStorage("user-entries", [
-  // {
-  //   week: "",
-  //   entries: [],
-  // },
-  // ]);
-  // console.log(data);
+const Home = () => {
+  const [data, setData] = useLocalStorage("user-entries", [
+    {
+      week: "",
+      entries: [],
+    },
+  ]);
 
-  // useEffect(() => {
-  //   setData(JSON.parse(localStorage.getItem("user-entries")));
-  // });
-
-  const data = JSON.parse(localStorage.getItem("user-entries"));
 
   return (
     // <div className="container">
     <div className="home-container">
       <Navbar />
       <div className="home-hours">
-        <TimeEntry
-          data={data}
-          // setData={setData}
-        />
-        <TimeInfo data={data} />
+        <TimeEntry data={data} setData={setData} />
+        {/* <TimeInfo data={data} /> */}
       </div>
       <div className="home-weeklyreports">
-        <WeeklyReport data={data} />
+        {/* <WeeklyReport data={data} /> */}
       </div>
     </div>
     // </div>
