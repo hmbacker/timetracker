@@ -45,29 +45,29 @@ const WeeklyReport = (props) => {
               <div className="week-hours">
                 {weekly_hours} <p style={{ fontSize: "11px" }}>timer totalt</p>
               </div>
-              <div className="week-buttons">
-                <div className="week-csv">
-                  {weekly_hours < 40 && (
-                    <button
-                      onClick={() => {
-                        setModalOpen(true);
-                        setCsvWeek(row.week);
-                      }}
-                    >
-                      Eksporter til .csv
-                    </button>
-                  )}
-                  {weekly_hours >= 40 && (
-                    <CSVLink
-                      data={row.entries}
-                      filename={"timerapport_uke_" + row.week + ".csv"}
-                      enclosingCharacter={""}
-                      style={{ color: "#f1f1f1", fontSize: "12px" }}
-                    >
-                      Eksporter til .csv
-                    </CSVLink>
-                  )}
-                </div>
+              {/* <div className="week-buttons"> */}
+              <div className="week-csv">
+                {weekly_hours < 40 && (
+                  <button
+                    onClick={() => {
+                      setModalOpen(true);
+                      setCsvWeek(row.week);
+                    }}
+                  >
+                    Eksporter til .csv
+                  </button>
+                )}
+                {weekly_hours >= 40 && (
+                  <CSVLink
+                    data={row.entries}
+                    filename={"timerapport_uke_" + row.week + ".csv"}
+                    enclosingCharacter={""}
+                    style={{ color: "#f1f1f1", fontSize: "12px" }}
+                  >
+                    Eksporter til .csv
+                  </CSVLink>
+                )}
+                {/* </div> */}
               </div>
             </div>
 
@@ -94,7 +94,11 @@ const WeeklyReport = (props) => {
   return (
     <div
       className="weekly-container"
-      style={summary ? { width: "70%" } : { width: "100%" }}
+      style={
+        summary && parseInt(window.innerWidth) > 1000
+          ? { width: "70%" }
+          : { width: "100%" }
+      }
     >
       {reports}
       <div className="toggle-container">
