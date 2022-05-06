@@ -21,7 +21,6 @@
   height: auto;
   background-color: #094644;
   /* background-color: #3d9988; */
-
   border-radius: 5px;
   padding: 5px;
 }
@@ -43,8 +42,19 @@
   flex-direction: row;
   align-items: center;
   /* justify-content: center; */
-  margin-left: 30px;
+  margin-left: 150px;
   /* margin-right: 5px; */
+}
+
+.week-hours > p {
+  margin-left: 5px;
+}
+
+.week-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 230px;
 }
 
 .week-csv {
@@ -55,7 +65,8 @@
   margin: 10px;
 }
 
-.week-csv > button {
+.week-csv > button,
+.week-buttons > button {
   border: none;
   background: transparent;
   color: #f1f1f1;
@@ -64,6 +75,89 @@
   padding: 0;
 }
 
-.week-csv > button:hover {
+.week-csv > button:hover,
+.week-buttons > button:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .week-buttons {
+    flex-direction: column;
+    padding: 3px;
+    width: 150px;
+  }
+  .week-hours {
+    margin-left: 70px;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .week-buttons {
+    padding-left: 0;
+    width: 150px;
+    justify-content: center !important;
+    align-items: center;
+  }
+  .week-hours {
+    margin-left: 70px;
+  }
+  .week-hours > p {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .week-hours {
+    margin-left: 30px;
+  }
+}
+
+.toggle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toggle-text {
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  /* background-color: #e9e9ed; */
+  background-color: #f1f1f1;
+  border-radius: 25px;
+  top: 0;
+  right: 4px;
+  bottom: 0;
+  left: 0;
+}
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #1d1d1d;
+  border-radius: 50%;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: white;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: #0d9940;
 }

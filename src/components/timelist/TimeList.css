@@ -20,11 +20,18 @@
   cursor: pointer;
 }
 
-.timelist {
+.timelist-detailed {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.timelist-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
 }
 
 .timelist-list {
@@ -69,5 +76,9 @@
     position: absolute;
     top: -9999px;
     left: -9999px;
+  }
+
+  .timelist-summary {
+    width: 100%;
   }
 }

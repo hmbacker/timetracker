@@ -15,7 +15,6 @@ const TimeEntry = (props) => {
     hours: "",
     comment: "",
   });
-  console.log(props.data.length);
 
   const [customerAuto, setCustomerAuto] = useState(false);
   const [projectAuto, setProjectAuto] = useState(false);

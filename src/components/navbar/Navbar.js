@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="navbar-title">Timeføring AS</div>
         <div className="navbar-logo">
-          <Logo style={{ height: "10vh" }} />
+          <Logo style={{ height: "8vh" }} />
         </div>
       </div>
     </div>

@@ -45,6 +45,7 @@ export const CsvModal = (props) => {
         Eksporter til .csv
       </CSVLink>
       <button
+        className="info-button"
         style={{ marginTop: "20px" }}
         onClick={() => {
           props.setModalOpen(false);

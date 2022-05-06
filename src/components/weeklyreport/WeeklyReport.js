@@ -9,6 +9,9 @@ const WeeklyReport = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [csvWeek, setCsvWeek] = useState(null);
 
+  const [detailed, setDetailed] = useState(true);
+  const [summary, setSummary] = useState(false);
+
   function getWeeklyHours(row) {
     let weekly_hours = 0;
     try {
@@ -17,6 +20,16 @@ const WeeklyReport = (props) => {
       });
     } catch (e) {}
     return weekly_hours;
+  }
+
+  function toggle() {
+    if (detailed) {
+      setDetailed(false);
+      setSummary(true);
+    } else {
+      setDetailed(true);
+      setSummary(false);
+    }
   }
 
   let reports = [];
@@ -30,36 +43,41 @@ const WeeklyReport = (props) => {
             <div className="week-info">
               <div className="week-number">Uke {row.week}</div>
               <div className="week-hours">
-                {weekly_hours}{" "}
-                <p style={{ fontSize: "11px", marginLeft: "5px" }}>
-                  timer totalt
-                </p>
+                {weekly_hours} <p style={{ fontSize: "11px" }}>timer totalt</p>
               </div>
-              <div className="week-csv">
-                {weekly_hours < 40 && (
-                  <button
-                    onClick={() => {
-                      setModalOpen(true);
-                      setCsvWeek(row.week);
-                    }}
-                  >
-                    Eksporter til .csv
-                  </button>
-                )}
-                {weekly_hours >= 40 && (
-                  <CSVLink
-                    data={row.entries}
-                    filename={"timerapport_uke_" + row.week + ".csv"}
-                    enclosingCharacter={""}
-                    style={{ color: "#f1f1f1", fontSize: "12px" }}
-                  >
-                    Eksporter til .csv
-                  </CSVLink>
-                )}
+              <div className="week-buttons">
+                <div className="week-csv">
+                  {weekly_hours < 40 && (
+                    <button
+                      onClick={() => {
+                        setModalOpen(true);
+                        setCsvWeek(row.week);
+                      }}
+                    >
+                      Eksporter til .csv
+                    </button>
+                  )}
+                  {weekly_hours >= 40 && (
+                    <CSVLink
+                      data={row.entries}
+                      filename={"timerapport_uke_" + row.week + ".csv"}
+                      enclosingCharacter={""}
+                      style={{ color: "#f1f1f1", fontSize: "12px" }}
+                    >
+                      Eksporter til .csv
+                    </CSVLink>
+                  )}
+                </div>
               </div>
             </div>
 
-            <TimeList data={row.entries} />
+            <TimeList
+              data={row.entries}
+              // expand={expand}
+              // setExpand={setExpand}
+              detailed={detailed}
+              summary={summary}
+            />
             {csvWeek === row.week && (
               <CsvModal
                 data={row}
@@ -73,7 +91,27 @@ const WeeklyReport = (props) => {
     });
   } catch (e) {}
 
-  return <div className="weekly-container">{reports}</div>;
+  return (
+    <div
+      className="weekly-container"
+      style={summary ? { width: "70%" } : { width: "100%" }}
+    >
+      {reports}
+      <div className="toggle-container">
+        <div className="toggle-text">Vis sammendrag</div>
+        <label className="toggle-switch">
+          <input
+            type="checkbox"
+            checked={summary}
+            onChange={() => {
+              toggle();
+            }}
+          />
+          <span className="switch" />
+        </label>
+      </div>
+    </div>
+  );
 };
 
 export default WeeklyReport;

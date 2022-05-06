@@ -10,6 +10,7 @@ const TimeList = (props) => {
   // }
 
   const [expand, setExpand] = useState(false);
+
   let time_list = [];
 
   try {
@@ -31,6 +32,26 @@ const TimeList = (props) => {
 
   // console.log(props.data);
 
+  let time_list_summary = [];
+  let all_customers = {};
+  try {
+    Object.values(props.data).map((row, index) => {
+      if (row.customer in all_customers) {
+        all_customers[row.customer] += parseInt(row.hours);
+      } else {
+        all_customers[row.customer] = parseInt(row.hours);
+      }
+    });
+    time_list_summary = Object.entries(all_customers).map((customer, index) => {
+      return (
+        <div className="list-container" key={index}>
+          <div>{customer[0]}</div>
+          <div>{customer[1]}</div>
+        </div>
+      );
+    });
+  } catch (e) {}
+
   return (
     <div
       className="timelist-container"
@@ -42,8 +63,8 @@ const TimeList = (props) => {
           Lukk rapport
         </div>
       )}
-      {expand && (
-        <div className="timelist">
+      {expand && props.detailed && (
+        <div className="timelist-detailed" style={{ width: "100%" }}>
           <div className="timelist-columns">
             <p>Kunde</p>
             <p>Prosjekt</p>
@@ -54,6 +75,16 @@ const TimeList = (props) => {
           </div>
           <div className="line" />
           <div className="timelist-list">{time_list}</div>
+        </div>
+      )}
+      {expand && props.summary && (
+        <div className="timelist-summary">
+          <div className="timelist-columns">
+            <p>Kunde</p>
+            <p>Timer</p>
+          </div>
+          <div className="line" />
+          <div className="timelist-list">{time_list_summary}</div>
         </div>
       )}
     </div>
