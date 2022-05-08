@@ -7,3 +7,11 @@
   background-color: #1d1d1d;
   opacity: 90%;
 }
+
+.csv-link {
+  text-decoration: none;
+}
+
+.csv-link:hover {
+  border-bottom: 2px solid #0d9940;
+}

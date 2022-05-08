@@ -6,7 +6,6 @@
   align-items: center;
   margin: 20px;
   color: #f1f1f1;
-  /* background-color: black; */
 }
 
 .info-week {
@@ -46,21 +45,17 @@
 .info-totalcustomers-text,
 .info-totalprojects-text,
 .info-totalhours-text {
-  /* font-size: 11px; */
   font-size: 1rem;
 }
 
 .info-totalcustomers-customers,
 .info-totalprojects-projects,
 .info-totalhours-hours {
-  /* font-size: 40px; */
   font-size: 4rem;
   color: #a9e8e8;
 }
 
 .info-button {
-  /* margin-right: 20px;
-  margin-left: 20px; */
   padding: 10px;
   height: 40px;
   border-radius: 5px;

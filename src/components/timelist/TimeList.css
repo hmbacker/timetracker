@@ -7,13 +7,7 @@
   padding: 10px;
   color: #f1f1f1;
   font-size: 12px;
-  /* width: 100%; */
-  /* height: 20px; */
-  /* height: auto; */
-  /* background-color: antiquewhite; */
-  /* background-color: #d0bdf4; */
   background-color: #115c5a;
-  /* overflow-x: scroll; */
 }
 
 .timelist-container:hover {
@@ -40,17 +34,11 @@
   width: 80%;
 }
 
-/* .timelist-text {
-  margin-bottom: 10px;
-} */
-
 .timelist-columns {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   justify-content: center;
   width: 80%;
-  /* background-color: antiquewhite; */
 }
 
 .line {
@@ -70,7 +58,7 @@
   width: 150px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   #description,
   #comment {
     position: absolute;
@@ -80,5 +68,24 @@
 
   .timelist-summary {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #date {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  #hours {
+    width: 100px;
+  }
+  .timelist-list,
+  .timelist-columns {
+    width: 100%;
+  }
+  .list-container {
+    width: 100%;
+    justify-content: space-between;
   }
 }

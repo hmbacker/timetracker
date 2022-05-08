@@ -45,6 +45,8 @@ const Register = () => {
             setPasswordTooShort(true);
           }
           if (data.user) {
+            localStorage.setItem("user-token", data.accessToken);
+            localStorage.setItem("user-email", data.user.email);
             navigate("/home");
           }
         });
@@ -86,24 +88,18 @@ const Register = () => {
             onChange={(e) => setConfirmedPassword(e.target.value)}
           />
           {noMatch && (
-            <p style={{ fontSize: "12px", color: "red" }}>
-              Passordene er ikke like.
-            </p>
+            <p style={{ fontSize: "12px" }}>Passordene er ikke like.</p>
           )}
           {noValidEmail && (
-            <p style={{ fontSize: "12px", color: "red" }}>
-              Ikke en gyldig epost-adresse.
-            </p>
+            <p style={{ fontSize: "12px" }}>Ikke en gyldig epost-adresse.</p>
           )}
           {passwordTooShort && (
-            <p style={{ fontSize: "12px", color: "red" }}>
-              Passordet er for kort.
-            </p>
+            <p style={{ fontSize: "12px" }}>Passordet er for kort.</p>
           )}
           <button className="login-button" type="submit">
             Registrer
           </button>
-          <Link to="/" style={{ color: "#f1f1f1" }}>
+          <Link to="/" style={{ color: "#f1f1f1", fontSize: "12px" }}>
             Gå tilbake
           </Link>
         </form>

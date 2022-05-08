@@ -1,13 +1,3 @@
-/* .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-
-  width: 100vw;
-  background-color: #1d1d1d;
-} */
-
 .time-container {
   display: flex;
   flex-direction: row;
@@ -82,7 +72,6 @@
 .timeentry-form {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: flex-start;
   align-items: center;
   margin-top: 10px;
@@ -147,8 +136,6 @@
 
 .timeentry-form-button {
   background-color: #0d9940;
-  /* background-color: #47cf74; */
-  /* background-color: #27bf5f; */
   border: none;
   color: white;
   padding: 10px 20px;

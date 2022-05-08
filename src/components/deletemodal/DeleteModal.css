@@ -1,0 +1,9 @@
+.delete {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.delete:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #f44336;
+}

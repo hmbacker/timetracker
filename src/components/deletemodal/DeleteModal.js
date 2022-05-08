@@ -1,7 +1,6 @@
 import Modal from "react-modal";
 import React from "react";
-import { CSVLink } from "react-csv";
-import "./CsvModal.css";
+import "./DeleteModal.css";
 
 const modalStyles = {
   content: {
@@ -26,28 +25,44 @@ const modalStyles = {
   },
 };
 
-export const CsvModal = (props) => {
+export const DeleteModal = (props) => {
   return (
     <Modal
       isOpen={props.modalOpen}
       style={modalStyles}
-      data={props.data}
+      ariaHideApp={false}
       overlayClassName="csv-modal-background"
     >
-      Antall timer denne uken er under 40. Vil du fortsatt eksportere til .csv?
-      <CSVLink
-        className="csv-link"
-        data={props.data.entries}
-        filename={"timerapport_uke_" + props.data.week + ".csv"}
-        enclosingCharacter={""}
-        style={{ color: "#f1f1f1", fontSize: "16px", marginTop: "20px" }}
-      >
-        Eksporter til .csv
-      </CSVLink>
+      Er du sikker på at du vil fjerne{" "}
+      {props.customer ? props.customer : props.project} fra alle rapporter?
+      {props.customer && (
+        <div
+          className="delete"
+          onClick={() => {
+            props.deleteCustomer(props.customer);
+            props.setModalOpen(false);
+          }}
+        >
+          Fjern {props.customer}
+        </div>
+      )}
+      {props.project && (
+        <div
+          className="delete"
+          onClick={() => {
+            props.deleteProject(props.project);
+            props.setModalOpen(false);
+          }}
+        >
+          Fjern {props.project}
+        </div>
+      )}
       <button
         className="info-button"
         style={{ marginTop: "20px" }}
         onClick={() => {
+          props.setCustomer("");
+          props.setProject("");
           props.setModalOpen(false);
         }}
       >

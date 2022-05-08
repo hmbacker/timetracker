@@ -1,26 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
-
-// const data = JSON.parse(localStorage.getItem("user-entries"));
-
-// export const unique_customers = [
-//   ...new Set(
-//     Object.values(data).map((row) => {
-//       Object.values(row.entries).map((value) => {
-//         return value.customer;
-//       });
-//     })
-//   ),
-// ];
-
-// export const unique_projects = [
-//   ...new Set(
-//     Object.values(data).map((row) => {
-//       Object.values(row.entries).map((value) => {
-//         return value.project;
-//       });
-//     })
-//   ),
-// ];
+import React from "react";
 
 export function getUniqueCustomers(data) {
   let all_customers = [];

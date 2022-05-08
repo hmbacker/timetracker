@@ -2,13 +2,6 @@ import React, { useState } from "react";
 import "./TimeList.css";
 
 const TimeList = (props) => {
-  // let data = {};
-  // let json_data = JSON.parse(localStorage.getItem("user-entries"));
-
-  // if (json_data) {
-  //   data = json_data.reverse();
-  // }
-
   const [expand, setExpand] = useState(false);
 
   let time_list = [];
@@ -20,17 +13,13 @@ const TimeList = (props) => {
           <div>{row.customer}</div>
           <div>{row.project}</div>
           <div id="description">{row.description}</div>
-          <div>{row.date}</div>
-          <div>{row.hours}</div>
+          <div id="date">{row.date}</div>
+          <div id="hours">{row.hours}</div>
           <div id="comment">{row.comment}</div>
         </div>
       );
     });
-  } catch (e) {
-    console.log(e);
-  }
-
-  // console.log(props.data);
+  } catch (e) {}
 
   let time_list_summary = [];
   let all_customers = {};
@@ -69,8 +58,8 @@ const TimeList = (props) => {
             <p>Kunde</p>
             <p>Prosjekt</p>
             <p id="description">Beskrivelse</p>
-            <p>Dato</p>
-            <p>Timer</p>
+            <p id="date">Dato</p>
+            <p id="hours">Timer</p>
             <p id="comment">Kommentar</p>
           </div>
           <div className="line" />

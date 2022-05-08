@@ -1,6 +1,5 @@
 html {
   min-height: 100%;
-  /* overflow-y: scroll; */
   background-color: #1d1d1d;
 }
 
@@ -19,10 +18,8 @@ html {
   align-items: center;
   height: 100%;
   width: 100vw;
-
   border-radius: 5px;
   background-color: #1d1d1d;
-  /* background-color: #f1f1f1; */
 }
 
 .home-hours {
@@ -30,7 +27,6 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  /* margin-top: 20px; */
   margin-bottom: 20px;
 }
 
@@ -41,17 +37,17 @@ html {
   align-items: center;
   width: 25rem;
   height: 30rem;
-  /* background-color: #d0ffed; */
-  /* background-color: #aeecff; */
-  /* background-color: #094644; */
-  background-color: #115c5a;
+  /* background-color: #115c5a; */
+  background-color: #094644;
   border-radius: 10px;
-  /* color: #1d1d1d; */
   color: #f1f1f1;
   font-family: "Verdana";
-  /* font-size: 14px; */
   font-size: 1rem;
   padding: 10px;
+}
+
+.form-wrapper > h2 {
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -73,7 +69,7 @@ html {
   }
 
   .home-hours {
-    width: 70%;
+    width: 80%;
     margin-top: 20px;
   }
 }
@@ -83,7 +79,6 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* max-width: 40vw; */
 }
 
 .login-text {
@@ -95,18 +90,22 @@ html {
 
 .form > input[type="text"],
 .form > input[type="password"] {
-  border: none;
-  border-bottom: 2px solid #1d1d1d;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
   outline: none;
-  width: 70%;
-  max-width: 500px;
-  padding: 12px 20px;
-  margin: 8px 0;
+  width: 100px;
+  min-width: 150px;
+  height: 35px;
+  margin: 10px;
   color: #f1f1f1;
-  font-size: 16px;
-  /* font-size: 1rem; */
+  font-size: 14px;
   background: transparent;
   text-align: center;
+}
+
+.form > input[type="text"]:focus::placeholder,
+.form > input[type="password"]:focus::placeholder {
+  color: transparent;
 }
 
 .login-button {
@@ -130,20 +129,25 @@ html {
   margin-top: 40px;
   margin-bottom: 40px;
   width: 80%;
-  /* text-align: left; */
-  /* background-color: darkcyan; */
+}
+
+.admin-header {
+  display: flex;
+  flex-direction: row;
 }
 
 .admin-text {
   margin-left: 5px;
   font-size: 2rem;
   margin-bottom: 30px;
+  margin-top: 10px;
 }
 .admin-content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 70%;
 }
 
 .admin-info-container {
@@ -155,35 +159,67 @@ html {
 .admin-info-totalprojects-container {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 100px;
 }
 
 .admin-info-totalcustomers-text,
 .admin-info-totalprojects-text {
-  /* font-size: 11px; */
   font-size: 1rem;
 }
 
 .admin-info-totalcustomers-customers,
 .admin-info-totalprojects-projects {
-  /* font-size: 40px; */
   font-size: 4rem;
   color: #a9e8e8;
 }
 
-.admin-list-container {
+.admin-content-container
+  > .customers
+  > .admin-list-content
+  > .customer
+  > button,
+.admin-content-container > .projects > .admin-list-content > .project > button {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+}
+
+.admin-content-container
+  > .customers
+  > .admin-list-content
+  > .customer
+  > button:hover,
+.admin-content-container
+  > .projects
+  > .admin-list-content
+  > .project
+  > button:hover {
+  cursor: pointer;
+}
+
+.admin-list-text {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.customers,
+.projects {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
 }
 
-.customers {
-  margin-right: 20px;
-}
-
-.projects {
-  margin-left: 20px;
+.customer,
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
 }
 
 .customers > *,
@@ -191,12 +227,50 @@ html {
   margin: 10px;
 }
 
-.form-title {
-  /* font-size: 20px; */
-  font-size: 3vh;
-  color: #f1f1f1;
-  /* color: #1d1d1d; */
-  /* color: #1d1d1d; */
-  /* font-family: "Copperplate"; */
-  font-family: "Verdana";
+.admin-footer {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.admin-list-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 1100px) {
+  .customers,
+  .projects {
+    width: 60%;
+  }
+
+  .admin-content-container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .customers,
+  .projects {
+    width: 80%;
+  }
+  .admin-content-container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .customers,
+  .projects {
+    width: 100%;
+  }
+
+  .admin-content-container {
+    width: 100%;
+  }
+  .admin-info-totalcustomers-container,
+  .admin-info-totalprojects-container {
+    width: 150px;
+  }
 }

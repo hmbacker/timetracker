@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./TimeInfo.css";
 
 import { weekNumber } from "weeknumber";
@@ -57,11 +56,6 @@ const TimeInfo = (props) => {
           <div className="info-totalhours-hours">{total_hours}</div>
         </div>
       </div>
-      {/* <div className="info-button"> */}
-      {/* <Link to="/admin" style={{ color: "#1d1d1d", textDecoration: "none" }}>
-        <button className="info-button">Administrasjon</button>
-      </Link> */}
-      {/* </div> */}
     </div>
   );
 };

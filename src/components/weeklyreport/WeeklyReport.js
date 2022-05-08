@@ -22,19 +22,7 @@ const WeeklyReport = (props) => {
     return weekly_hours;
   }
 
-  function toggle() {
-    if (detailed) {
-      setDetailed(false);
-      setSummary(true);
-    } else {
-      setDetailed(true);
-      setSummary(false);
-    }
-  }
-
   let reports = [];
-  // const data = props.data.reverse();
-  // console.log(data);
   try {
     reports = Object.values(props.data).map((row, index) => {
       let weekly_hours = getWeeklyHours(row);
@@ -74,8 +62,6 @@ const WeeklyReport = (props) => {
 
             <TimeList
               data={row.entries}
-              // expand={expand}
-              // setExpand={setExpand}
               detailed={detailed}
               summary={summary}
             />
@@ -102,22 +88,6 @@ const WeeklyReport = (props) => {
       }
     >
       {reports}
-      {/* {reports.length > 0 && (
-        <div className="toggle-container">
-          <div className="toggle-text">Detaljert</div>
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={summary}
-              onChange={() => {
-                toggle();
-              }}
-            />
-            <span className="switch" />
-          </label>
-          <div className="toggle-text">Sammendrag</div>
-        </div>
-      )} */}
       {reports.length > 0 && (
         <div className="tabs-container">
           <div

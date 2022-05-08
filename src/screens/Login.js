@@ -36,8 +36,8 @@ const Login = () => {
           setInvalidEmail(true);
         }
         if (data.user) {
-          localStorage.setItem("username", data.user.email);
-          // console.log(data.user);
+          localStorage.setItem("user-token", data.accessToken);
+          localStorage.setItem("user-email", data.user.email);
           navigate("/home");
         }
       });
@@ -51,7 +51,7 @@ const Login = () => {
     <div className="container">
       <div className="form-wrapper">
         <Logo />
-        <div className="form-title">Timeføring AS</div>
+        <h2>Timeføring AS</h2>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"

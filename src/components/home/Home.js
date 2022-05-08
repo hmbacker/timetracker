@@ -44,7 +44,6 @@ const Home = (props) => {
       all_entries.push(new_entry);
     }
 
-    // window.localStorage.setItem("user-entries", JSON.stringify(all_entries));
     props.setData(all_entries);
     setEntry({
       customer: "",
@@ -60,7 +59,6 @@ const Home = (props) => {
     e.preventDefault();
     addEntry(entry);
     setIsAdded(true);
-    // window.location.reload();
   };
 
   const handleChange = (e) => {

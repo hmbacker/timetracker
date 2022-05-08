@@ -9,6 +9,13 @@ import "./screens.css";
 
 const HomePage = () => {
   const [data, setData] = useLocalStorage("user-entries", []);
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("user-token") === null) {
+      navigate("/");
+    }
+  });
 
   return (
     <div className="home-container">

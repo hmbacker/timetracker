@@ -4,9 +4,6 @@
   height: 10vh;
   width: 100%;
   background-color: #094644;
-  /* background-color: #0084b8; */
-  /* background-color: #3d9988; */
-  /* background-color: #115c5a; */
 }
 
 .navbar-container {
@@ -14,17 +11,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 51.5%;
+  width: 52%;
 }
 
 .navbar-title {
-  /* font-size: 20px; */
   font-size: 2.5vh;
   margin-left: 40px;
   color: #f1f1f1;
-  /* color: #1d1d1d; */
-  /* color: #1d1d1d; */
-  /* font-family: "Copperplate"; */
   font-family: "Verdana";
 }
 
@@ -34,5 +27,11 @@
   }
   .navbar-logo {
     margin-right: 40px;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .navbar-container {
+    width: 51%;
   }
 }
