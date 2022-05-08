@@ -136,6 +136,15 @@
   -moz-appearance: textfield;
 }
 
+.timeentry-form > .form-inputs > input[type="text"]:focus::placeholder,
+.timeentry-form > .form-inputs > input[type="number"]:focus::placeholder,
+.timeentry-form
+  > .form-inputs
+  > .dropdown-wrapper
+  > input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
 .timeentry-form-button {
   background-color: #0d9940;
   /* background-color: #47cf74; */

@@ -16,6 +16,33 @@ const Admin = () => {
   let unique_customers = [];
   let unique_projects = [];
 
+  const user_email = localStorage.getItem("username");
+
+  function deleteCustomer(customer) {
+    let new_data = data;
+    Object.values(new_data).map((row) =>
+      Object.values(row.entries).map((value) => {
+        if (value.customer === customer) {
+          try {
+            delete value.customer;
+            delete value.project;
+            delete value.description;
+            delete value.date;
+            delete value.hours;
+            delete value.comment;
+          } catch (e) {}
+        }
+      })
+    );
+    // console.log(data);
+    setData(new_data);
+  }
+  console.log(data);
+
+  // Object.values(data).map((row) => {
+  //   Object.values(row.entries).map((value) => console.log(value));
+  // });
+
   try {
     unique_customers = getUniqueCustomers(data);
     unique_projects = getUniqueProjects(data);
@@ -24,12 +51,11 @@ const Admin = () => {
     total_projects = unique_projects.length;
   } catch (e) {}
 
-  Object.values(data).map((row) => console.log(row.entries));
-
   const customers = Object.values(unique_customers).map((customer, index) => {
     return (
       <div className="customer" key={index}>
         {customer}
+        <button onClick={() => deleteCustomer(customer)}></button>
       </div>
     );
   });
@@ -47,6 +73,7 @@ const Admin = () => {
       <Navbar />
       <div className="admin-container">
         <div className="admin-text">Dine kunder og prosjekter</div>
+        {user_email}
         <div className="admin-content-container">
           <div className="admin-info-container">
             <div className="admin-info-totalcustomers-container">

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { getUniqueCustomers, getUniqueProjects } from "../../GlobalFunctions";
 import TimeInfo from "../timeinfo/TimeInfo";
 import WeeklyReport from "../weeklyreport/WeeklyReport";
-import "./TimeEntry.css";
+import "./Home.css";
 
-const TimeEntry = (props) => {
+const Home = (props) => {
   const [entry, setEntry] = useState({
     customer: "",
     project: "",
@@ -86,8 +86,6 @@ const TimeEntry = (props) => {
                     setCustomerAuto(true);
                     setProjectAuto(false);
                   }}
-                  // onBlur={() => setCustomerAuto(false)}
-                  // onMouseLeave={() => setCustomerAuto(false)}
                 />
                 <ul>
                   {customerAuto && unique_customers.length > 0
@@ -112,11 +110,6 @@ const TimeEntry = (props) => {
                     </li>
                   )}
                 </ul>
-                {/* <button
-              onClick={() =>
-                customerAuto ? setCustomerAuto(false) : setCustomerAuto(true)
-              }
-            /> */}
               </div>
 
               <div className="dropdown-wrapper">
@@ -236,4 +229,4 @@ const TimeEntry = (props) => {
   );
 };
 
-export default TimeEntry;
+export default Home;

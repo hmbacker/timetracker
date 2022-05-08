@@ -36,6 +36,8 @@ const Login = () => {
           setInvalidEmail(true);
         }
         if (data.user) {
+          localStorage.setItem("username", data.user.email);
+          // console.log(data.user);
           navigate("/home");
         }
       });
@@ -49,7 +51,7 @@ const Login = () => {
     <div className="container">
       <div className="form-wrapper">
         <Logo />
-        <h2>Timeføring AS</h2>
+        <div className="form-title">Timeføring AS</div>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
@@ -66,18 +68,12 @@ const Login = () => {
             name="password"
             onChange={(e) => handleChange(e)}
           />
-          {noUser && (
-            <p style={{ fontSize: "12px", color: "red" }}>
-              Brukeren finnes ikke.
-            </p>
-          )}
+          {noUser && <p style={{ fontSize: "12px" }}>Brukeren finnes ikke.</p>}
           {wrongPassword && (
-            <p style={{ fontSize: "12px", color: "red" }}>Passordet er feil.</p>
+            <p style={{ fontSize: "12px" }}>Passordet er feil.</p>
           )}
           {invalidEmail && (
-            <p style={{ fontSize: "12px", color: "red" }}>
-              Ikke en gyldig epost-adresse.
-            </p>
+            <p style={{ fontSize: "12px" }}>Ikke en gyldig epost-adresse.</p>
           )}
           <button className="login-button" type="submit">
             Logg inn

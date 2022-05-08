@@ -122,3 +122,23 @@
 .toggle-switch input[type="checkbox"]:checked + .switch {
   background-color: #0d9940;
 }
+
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.tabs-detailed {
+  margin-right: 10px;
+}
+
+.tabs-summary {
+  margin-left: 10px;
+}
+
+.tabs-detailed:hover,
+.tabs-summary:hover {
+  cursor: pointer;
+}

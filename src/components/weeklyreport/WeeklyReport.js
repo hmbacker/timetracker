@@ -33,6 +33,8 @@ const WeeklyReport = (props) => {
   }
 
   let reports = [];
+  // const data = props.data.reverse();
+  // console.log(data);
   try {
     reports = Object.values(props.data).map((row, index) => {
       let weekly_hours = getWeeklyHours(row);
@@ -45,7 +47,7 @@ const WeeklyReport = (props) => {
               <div className="week-hours">
                 {weekly_hours} <p style={{ fontSize: "11px" }}>timer totalt</p>
               </div>
-              {/* <div className="week-buttons"> */}
+
               <div className="week-csv">
                 {weekly_hours < 40 && (
                   <button
@@ -67,7 +69,6 @@ const WeeklyReport = (props) => {
                     Eksporter til .csv
                   </CSVLink>
                 )}
-                {/* </div> */}
               </div>
             </div>
 
@@ -96,24 +97,59 @@ const WeeklyReport = (props) => {
       className="weekly-container"
       style={
         summary && parseInt(window.innerWidth) > 1000
-          ? { width: "70%" }
+          ? { width: "50%" }
           : { width: "100%" }
       }
     >
       {reports}
-      <div className="toggle-container">
-        <div className="toggle-text">Vis sammendrag</div>
-        <label className="toggle-switch">
-          <input
-            type="checkbox"
-            checked={summary}
-            onChange={() => {
-              toggle();
+      {/* {reports.length > 0 && (
+        <div className="toggle-container">
+          <div className="toggle-text">Detaljert</div>
+          <label className="toggle-switch">
+            <input
+              type="checkbox"
+              checked={summary}
+              onChange={() => {
+                toggle();
+              }}
+            />
+            <span className="switch" />
+          </label>
+          <div className="toggle-text">Sammendrag</div>
+        </div>
+      )} */}
+      {reports.length > 0 && (
+        <div className="tabs-container">
+          <div
+            className="tabs-detailed"
+            onClick={() => {
+              setDetailed(true);
+              setSummary(false);
             }}
-          />
-          <span className="switch" />
-        </label>
-      </div>
+            style={
+              detailed
+                ? { borderBottom: "2px solid #f1f1f1" }
+                : { borderBottom: "none" }
+            }
+          >
+            Detaljert
+          </div>
+          <div
+            className="tabs-detailed"
+            onClick={() => {
+              setDetailed(false);
+              setSummary(true);
+            }}
+            style={
+              summary
+                ? { borderBottom: "2px solid #f1f1f1" }
+                : { borderBottom: "none" }
+            }
+          >
+            Sammendrag
+          </div>
+        </div>
+      )}
     </div>
   );
 };

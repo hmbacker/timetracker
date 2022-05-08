@@ -17,9 +17,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* height: 100vh; */
   height: 100%;
   width: 100vw;
+
+  border-radius: 5px;
   background-color: #1d1d1d;
   /* background-color: #f1f1f1; */
 }
@@ -33,19 +34,10 @@ html {
   margin-bottom: 20px;
 }
 
-.home-weeklyreports {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  color: #f1f1f1;
-}
-
 .form-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 25rem;
   height: 30rem;
@@ -78,6 +70,11 @@ html {
   .form-wrapper {
     width: 30rem;
     height: 30rem;
+  }
+
+  .home-hours {
+    width: 70%;
+    margin-top: 20px;
   }
 }
 
@@ -192,4 +189,14 @@ html {
 .customers > *,
 .projects > * {
   margin: 10px;
+}
+
+.form-title {
+  /* font-size: 20px; */
+  font-size: 3vh;
+  color: #f1f1f1;
+  /* color: #1d1d1d; */
+  /* color: #1d1d1d; */
+  /* font-family: "Copperplate"; */
+  font-family: "Verdana";
 }
