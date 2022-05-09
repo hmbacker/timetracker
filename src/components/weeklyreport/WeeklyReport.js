@@ -22,6 +22,8 @@ const WeeklyReport = (props) => {
     return weekly_hours;
   }
 
+  props.data.sort((a, b) => parseFloat(b.week) - parseFloat(a.week));
+
   let reports = [];
   try {
     reports = Object.values(props.data).map((row, index) => {
@@ -77,6 +79,8 @@ const WeeklyReport = (props) => {
       }
     });
   } catch (e) {}
+
+  // console.log(reports);
 
   return (
     <div
